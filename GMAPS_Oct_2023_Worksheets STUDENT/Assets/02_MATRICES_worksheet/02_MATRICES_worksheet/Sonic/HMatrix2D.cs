@@ -42,17 +42,18 @@ public class HMatrix2D
         entries[8, 8] = m22;
     }
 
-    //public static HMatrix2D operator +(HMatrix2D left, HMatrix2D right)
-    //{
-    //    //for (int row = 0; row < left.entries.GetLength(0); row++)
-    //    //{
-    //    //    for (int col = 0; col < right.entries.GetLength(1); col++)
-    //    //    {
-    //    //        //left.entries[row, col] + right.entries[row, col];
-    //    //    }
-    //    //}
-    //    return new HMatrix2D(left.entries + right.entries);
-    //}
+    public static HMatrix2D operator +(HMatrix2D left, HMatrix2D right)
+    {
+        HMatrix2D sum = new HMatrix2D();
+        for (int row = 0; row < left.entries.GetLength(0); row++)
+        {
+            for (int col = 0; col < right.entries.GetLength(1); col++)
+            {
+                sum.entries[row, col] = left.entries[row, col] + right.entries[row, col];
+            }
+        }
+        return sum;
+    }
 
     //public static HMatrix2D operator -(HMatrix2D left, HMatrix2D right)
     //{
