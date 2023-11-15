@@ -1,6 +1,8 @@
 using System.CodeDom.Compiler;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.VisualScripting;
 using UnityEditor.Profiling.Memory.Experimental;
 using UnityEngine;
 
@@ -55,14 +57,22 @@ public class HMatrix2D
         return sum;
     }
 
-    //public static HMatrix2D operator -(HMatrix2D left, HMatrix2D right)
-    //{
-    //    return // your code here
-    //}
+    public static HMatrix2D operator -(HMatrix2D left, HMatrix2D right)
+    {
+        HMatrix2D diff = new HMatrix2D();
+        for (int row = 0; row < left.entries.GetLength(0); row++)
+        {
+            for (int col = 0; col < right.entries.GetLength(1); col++)
+            {
+                diff.entries[row, col ] = left.entries[row, col] - right.entries[row, col];
+            }
+        }
+        return diff;
+    }
 
     //public static HMatrix2D operator *(HMatrix2D left, float scalar)
     //{
-    //    return // your code here
+        
     //}
 
     //// Note that the second argument is a HVector2D object
