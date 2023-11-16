@@ -22,9 +22,9 @@ public class TestMatrix : MonoBehaviour
 
     void Question2()
     {
-        mat1 = new HMatrix2D(3, 1, 1,
-            4, 7, 9, 
-            1, 5, 5);
+        mat1 = new HMatrix2D(1, 4, 2,
+            3, 3, 6, 
+            8, 5, 0);
         mat2 = new HMatrix2D(2, 5, 1,
             6, 7, 1,
             1, 8, 1);
