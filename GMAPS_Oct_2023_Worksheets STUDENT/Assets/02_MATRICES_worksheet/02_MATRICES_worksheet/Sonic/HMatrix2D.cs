@@ -95,29 +95,43 @@ public class HMatrix2D
         );
     }
 
-    //// Note that the second argument is a HMatrix2D object
-    ////
-    //public static HMatrix2D operator *(HMatrix2D left, HMatrix2D right)
-    //{
-    //    return new HMatrix2D
-    //    (
-    //        /* 
-    //            00 01 02    00 xx xx
-    //            xx xx xx    10 xx xx
-    //            xx xx xx    20 xx xx
-    //            */
-    //        left.Entries[0, 0] * right.Entries[0, 0] + left.Entries[0, 1] * right.Entries[1, 0] + left.Entries[0, 2] * right.Entries[2, 0],
+    // Note that the second argument is a HMatrix2D object
+    //
+    public static HMatrix2D operator *(HMatrix2D left, HMatrix2D right)
+    {
+        return new HMatrix2D
+        (
+            /* 
+                00 01 02    00 xx xx
+                xx xx xx    10 xx xx
+                xx xx xx    20 xx xx
+                */
+            left.entries[0, 0] * right.entries[0, 0] + left.entries[0, 1] * right.entries[1, 0] + left.entries[0, 2] * right.entries[2, 0],
 
-    //        /* 
-    //            00 01 02    xx 01 xx
-    //            xx xx xx    xx 11 xx
-    //            xx xx xx    xx 21 xx
-    //            */
-    //        left.Entries[0, 0] * right.Entries[0, 1] + left.Entries[0, 1] * right.Entries[1, 1] + left.Entries[0, 2] * right.Entries[2, 1],
+            /* 
+                00 01 02    xx 01 xx
+                xx xx xx    xx 11 xx
+                xx xx xx    xx 21 xx
+                */
+            left.entries[0, 0] * right.entries[0, 1] + left.entries[0, 1] * right.entries[1, 1] + left.entries[0, 2] * right.entries[2, 1],
 
-    //    // and so on for another 7 entries
-    //);
-    //}
+            // and so on for another 7 entries
+            left.entries[0, 0] * right.entries[0, 2] + left.entries[0, 1] * right.entries[1, 2] + left.entries[0, 2] + right.entries[2, 2],
+
+            left.entries[1, 0] * right.entries[0, 0] + left.entries[1, 1] * right.entries[1, 0] + left.entries[1, 2] + right.entries[2, 0],
+
+            left.entries[1, 0] * right.entries[0, 1] + left.entries[1, 1] * right.entries[1, 1] + left.entries[1, 2] + right.entries[2, 1],
+
+            left.entries[1, 0] * right.entries[0, 2] + left.entries[1, 1] * right.entries[1, 2] + left.entries[1, 2] + right.entries[2, 2],
+
+            left.entries[2, 0] * right.entries[0, 0] + left.entries[2, 1] * right.entries[1, 0] + left.entries[2, 2] + right.entries[2, 0],
+
+            left.entries[2, 0] * right.entries[0, 1] + left.entries[2, 1] * right.entries[1, 1] + left.entries[2, 2] + right.entries[2, 1],
+
+            left.entries[2, 0] * right.entries[0, 2] + left.entries[2, 1] * right.entries[1, 2] + left.entries[2, 2] + right.entries[2, 2]
+
+       );
+    }
 
     public static bool operator ==(HMatrix2D left, HMatrix2D right)
     {
