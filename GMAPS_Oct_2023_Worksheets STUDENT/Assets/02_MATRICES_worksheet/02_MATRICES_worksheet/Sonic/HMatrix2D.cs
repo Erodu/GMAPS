@@ -34,14 +34,14 @@ public class HMatrix2D
              float m20, float m21, float m22)
     {
         entries[0, 0] = m00;
-        entries[1, 1] = m01;
-        entries[2, 2] = m02;
-        entries[3, 3] = m10;
-        entries[4, 4] = m11;
-        entries[5, 5] = m12;
-        entries[6, 6] = m20;
-        entries[7, 7] = m21;
-        entries[8, 8] = m22;
+        entries[0, 1] = m01;
+        entries[0, 2] = m02;
+        entries[1, 0] = m10;
+        entries[1, 1] = m11;
+        entries[1, 2] = m12;
+        entries[2, 0] = m20;
+        entries[2, 1] = m21;
+        entries[2, 2] = m22;
     }
 
     public static HMatrix2D operator +(HMatrix2D left, HMatrix2D right)
