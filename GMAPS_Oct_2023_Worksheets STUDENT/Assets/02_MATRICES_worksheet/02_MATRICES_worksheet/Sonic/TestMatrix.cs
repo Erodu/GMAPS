@@ -12,6 +12,7 @@ public class TestMatrix : MonoBehaviour
     private HMatrix2D mat2;
     private HMatrix2D resultMat;
     private HVector2D vec1;
+    private HVector2D resultMatVec;
 
     void Start()
     {
