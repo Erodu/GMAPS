@@ -84,11 +84,15 @@ public class HMatrix2D
         return product;
     }
 
-    //// Note that the second argument is a HVector2D object
-    ////
+    // Note that the second argument is a HVector2D object
+    //
     //public static HVector2D operator *(HMatrix2D left, HVector2D right)
     //{
-    //    return // your code here
+    //    return new HVector2D
+    //    {
+    //        left.entries[0,0] * right.x + left.entries[0,1] * right.y,
+    //        left.entries[1,0] * right.x + left.entries[0,0] * right.y
+    //    };
     //}
 
     //// Note that the second argument is a HMatrix2D object
