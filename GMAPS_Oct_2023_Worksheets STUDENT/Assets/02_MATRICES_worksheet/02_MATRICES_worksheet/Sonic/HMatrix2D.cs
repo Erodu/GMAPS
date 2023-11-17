@@ -202,10 +202,12 @@ public class HMatrix2D
         }
     }
 
-    //public void setTranslationMat(float transX, float transY)
-    //{
-    //    // your code here
-    //}
+    public void setTranslationMat(float transX, float transY)
+    {
+        setIdentity();
+        entries[0, 2] = transX;
+        entries[1, 2] = transY;
+    }
 
     public void setRotationMat(float rotDeg)
     {
