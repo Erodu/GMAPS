@@ -90,8 +90,8 @@ public class HMatrix2D
     {
         return new HVector2D
         (
-            (left.entries[0, 0] * right.x + left.entries[0, 1] * right.y),
-            (left.entries[1, 0] * right.x + left.entries[1, 1] * right.y)
+            (left.entries[0, 0] * right.x + left.entries[0, 1] * right.y + left.entries[0, 2] * right.h),
+            (left.entries[1, 0] * right.x + left.entries[1, 1] * right.y + left.entries[1, 2] * right.h)
         );
     }
 
@@ -189,7 +189,7 @@ public class HMatrix2D
         {
             for (int x = 0; x < 3; x++)
             {
-                entries[y, x] = x == y ? 1 : 0;
+                entries[x, y] = x == y ? 1 : 0;
                 //if (x == y)
                 //{
                 //    entries[y, x] = 1;
@@ -213,10 +213,10 @@ public class HMatrix2D
     {
         setIdentity();
         float rad = rotDeg * Mathf.Deg2Rad;
-        entries[0, 0] = (Mathf.Cos(rad) * entries[0, 0]);
-        entries[0, 1] = (-Mathf.Sin(rad) * entries[0, 1]);
-        entries[1, 0] = (Mathf.Sin(rad) * entries[1, 0]);
-        entries[1, 1] = (Mathf.Cos(rad) * entries[1, 1]);
+        entries[0, 0] = (Mathf.Cos(rad));
+        entries[0, 1] = (-Mathf.Sin(rad));
+        entries[1, 0] = (Mathf.Sin(rad));
+        entries[1, 1] = (Mathf.Cos(rad));
     }
 
     //public void setScalingMat(float scaleX, float scaleY)
