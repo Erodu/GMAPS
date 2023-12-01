@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-//[Serializable]
+[Serializable]
 public class HVector2D
 {
     public float x, y;
