@@ -66,6 +66,8 @@ public class VectorExercises : MonoBehaviour
     {
         for (int i = 0; i < n; i++)
         {
+            //The starting and ending points are randomized within the minimum and maximum X and Y points.
+
             startPt = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
             endPt = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
 
