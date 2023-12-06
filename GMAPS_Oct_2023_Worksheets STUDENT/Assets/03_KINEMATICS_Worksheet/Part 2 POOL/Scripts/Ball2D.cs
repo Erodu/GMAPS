@@ -29,6 +29,7 @@ public class Ball2D : MonoBehaviour
 
     public bool IsCollidingWith(float x, float y)
     {
+        // Return true if the distance between the ball and the other object is less than the radius of the ball.
         float distance = Util.FindDistance(Position, new HVector2D(x, y));
         return distance <= Radius;
     }

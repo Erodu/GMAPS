@@ -45,6 +45,9 @@ public class TransformMesh : MonoBehaviour
 
         transformMatrix.setIdentity();
 
+        // Rotating an object in place requires you to move it to the origin,
+        // rotate it, then move it back to its original position.
+
         transformMatrix = toOriginMatrix * rotateMatrix * fromOriginMatrix;
 
         Transform();
@@ -52,6 +55,7 @@ public class TransformMesh : MonoBehaviour
 
     private void Transform()
     {
+        // Transform each individual vertex.
         vertices = meshManager.clonedMesh.vertices;
 
         for (int i = 0; i < vertices.Length; i++)

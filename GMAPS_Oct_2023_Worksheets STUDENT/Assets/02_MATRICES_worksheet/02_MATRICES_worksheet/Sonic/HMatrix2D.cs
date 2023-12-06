@@ -33,6 +33,7 @@ public class HMatrix2D
              float m10, float m11, float m12,
              float m20, float m21, float m22)
     {
+        // Set the position for each float in the array
         entries[0, 0] = m00;
         entries[0, 1] = m01;
         entries[0, 2] = m02;
@@ -46,6 +47,7 @@ public class HMatrix2D
 
     public static HMatrix2D operator +(HMatrix2D left, HMatrix2D right)
     {
+        // Scan through each individual element through row and col.
         HMatrix2D sum = new HMatrix2D();
         for (int row = 0; row < left.entries.GetLength(0); row++)
         {
@@ -135,6 +137,7 @@ public class HMatrix2D
 
     public static bool operator ==(HMatrix2D left, HMatrix2D right)
     {
+        // Individually check through each element to see if it is the same.
         for (int row = 0; row < left.entries.GetLength(0); row++)
         {
             for (int col = 0; col < right.entries.GetLength(1); col++)
@@ -150,6 +153,7 @@ public class HMatrix2D
 
     public static bool operator !=(HMatrix2D left, HMatrix2D right)
     {
+        // Inverse of previous function.
         for (int row = 0; row < left.entries.GetLength(0); row++)
         {
             for (int col = 0; col < right.entries.GetLength(1); col++)
@@ -185,6 +189,7 @@ public class HMatrix2D
 
     public void setIdentity()
     {
+        // At row and column coordinates that are equal, set element entry to 1. Others get set to 0.
         for (int y = 0; y < 3; y++)
         {
             for (int x = 0; x < 3; x++)
@@ -204,6 +209,12 @@ public class HMatrix2D
 
     public void setTranslationMat(float transX, float transY)
     {
+        // Translation Matrix:
+        /*             
+                1 0 transX
+                0 1 transY 
+                0 0 1
+        */
         setIdentity();
         entries[0, 2] = transX;
         entries[1, 2] = transY;
@@ -211,6 +222,12 @@ public class HMatrix2D
 
     public void setRotationMat(float rotDeg)
     {
+        // Rotation Matrix:
+        /* 
+         cos(rad) -sin(rad) 0
+         sin(rad) cos(rad) 0
+         0 0 1
+         */
         setIdentity();
         float rad = rotDeg * Mathf.Deg2Rad;
         entries[0, 0] = (Mathf.Cos(rad));
